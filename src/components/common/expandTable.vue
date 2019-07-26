@@ -2,9 +2,15 @@
 
         <!--配置项-->
         <!--
-        column:
+        column----class:
             tableRowDetail:颜色继承,有下划线
             tableRowTitle:蓝色字,无下划线
+        :tableData="tableData":表格数据,数组类型
+        :tableTotal="tableTotal":表格数量,数字类型
+         v-model="checkDataDetail":checkDataDetail是选择选中内容
+         loadingStatus:控制loading展示
+         v-on:refreshList="refreshListConfirm":refreshListConfirm当列表更新后,调用的函数
+         selectColumnId="id" 数组中唯一的区分字段,默认id,可不填,用于记录选择框选择状态
         -->
     <div class="expandTable">
         <el-table
@@ -15,7 +21,7 @@
                 border
                 :data="tableData"
                 style="width: 100%">
-            <el-table-column
+            <el-table-column v-if="selectColumn"
                     type="selection"
                     width="35"
             >
@@ -67,6 +73,18 @@
                     return false
                 },
                 type: Boolean
+            },
+            selectColumn:{
+                default() {
+                    return false
+                },
+                type: Boolean
+            },
+            selectColumnId:{
+                default() {
+                    return 'id'
+                },
+                type: String
             }
         },
         data() {
@@ -87,8 +105,10 @@
         },
         watch: {
             tableData: function () {
-                clearTimeout(this.timer);
-                this.timer = setTimeout(this.renderTableCheck, 100);
+                if(this.selectColumn){
+                    clearTimeout(this.timer);
+                    this.timer = setTimeout(this.renderTableCheck, 100);
+                }
             },
             checkDataId: function () {
                 this.$emit('input', {
@@ -100,14 +120,20 @@
         mounted() {
             this.refreshList();
         },
+        computed:{
+          checkUseId:function(){
+              return this.selectColumnId ? this.selectColumnId:'id';
+          }
+        },
         methods: {
             renderTableCheck() {
                 let is_check = document.querySelector('.el-checkbox__input.is-checked');
                 let tableData = this.tableData;
                 let currentPageCheck = [];
                 let checkDataId = JSON.parse(JSON.stringify(this.checkDataId));
+                let checkUseId = this.checkUseId;
                 for (let i = 0; i < tableData.length; i++) {
-                    if (checkDataId.indexOf(tableData[i].id) !== -1) {
+                    if (checkDataId.indexOf(tableData[i][checkUseId]) !== -1) {
                         currentPageCheck.push(tableData[i]);
                     }
                 }
@@ -116,7 +142,7 @@
                     clearTimeout(this.timer);
                 } else {
                     this.currentPageCheck.forEach(row => {
-                        if (checkDataId.indexOf(row.id) !== -1) {
+                        if (checkDataId.indexOf(row[checkUseId]) !== -1) {
                             this.$refs.multipleTable.toggleRowSelection(row, true);
                         }
                     });
@@ -124,10 +150,11 @@
                 }
             },
             handleSelectOne: function (ar, ob) {
-                let dataIndex = this.checkDataId.indexOf(ob.id);
+                let checkUseId= this.checkUseId;
+                let dataIndex = this.checkDataId.indexOf(ob[checkUseId]);
                 if (dataIndex === -1) {
                     this.checkData.push(ob);
-                    this.checkDataId.push(ob.id);
+                    this.checkDataId.push(ob[checkUseId]);
                 } else {
                     this.checkData.splice(dataIndex, 1);
                     this.checkDataId.splice(dataIndex, 1);
@@ -137,18 +164,19 @@
                 let tableData = this.tableData;
                 let checkData = JSON.parse(JSON.stringify(this.checkData));
                 let checkDataId = JSON.parse(JSON.stringify(this.checkDataId));
+                let checkUseId = this.checkUseId;
                 let dataIndex;
                 if (ar.length > 0) {
                     for (let i = 0; i < tableData.length; i++) {
-                        dataIndex = checkDataId.indexOf(tableData[i].id);
+                        dataIndex = checkDataId.indexOf(tableData[i][checkUseId]);
                         if (dataIndex === -1) {
                             checkData.push(tableData[i]);
-                            checkDataId.push(tableData[i].id);
+                            checkDataId.push(tableData[i][checkUseId]);
                         }
                     }
                 } else {
                     for (let i = 0; i < tableData.length; i++) {
-                        dataIndex = checkDataId.indexOf(tableData[i].id);
+                        dataIndex = checkDataId.indexOf(tableData[i][checkUseId]);
                         if (dataIndex !== -1) {
                             checkData.splice(dataIndex, 1);
                             checkDataId.splice(dataIndex, 1);
