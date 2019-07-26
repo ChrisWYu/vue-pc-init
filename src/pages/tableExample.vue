@@ -1,100 +1,103 @@
 <template>
-    <div>
-        <expandTable v-model="checkDataDetail" :loadingStatus="loadingStatus" :tableData="tableData" :selectColumn="true" selectColumnId="distributor"
-                     :tableTotal="tableTotal" v-on:refreshList="refreshListConfirm">
-            <el-table-column
-                    show-overflow-tooltip
-                    prop="distributor"
-                    label="经销商"
-                    width="140">
-                <template slot-scope="scope">
-                    <div @click="handleClick(scope.row)"
-                         class="tableRowTitle">
-                        {{scope.row.distributor}}
-                    </div>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    show-overflow-tooltip
-                    prop="warBelong"
-                    label="所属战区"
-                    width="140">
-            </el-table-column>
-            <el-table-column
-                    show-overflow-tooltip
-                    width="115"
-                    align="center"
-                    label="异常数">
-                <template slot-scope="scope">
-                    <el-tooltip class="item" effect="dark" placement="top">
-                        <template slot="content">
-                            <div slot="content">
-                                <span v-if="scope.row.codeA">{{changeAbnormalStatus('codeA')}} ：{{scope.row.codeA}}</span>
-                            </div>
-                            <div slot="content">
-                                <span v-if="scope.row.codeB">{{changeAbnormalStatus('codeB')}} ：{{scope.row.codeB}}</span>
-                            </div>
-                            <div slot="content">
-                                <span v-if="scope.row.codeC">{{changeAbnormalStatus('codeC')}} ：{{scope.row.codeC}}</span>
-                            </div>
-                            <div slot="content">
-                                <span v-if="scope.row.codeD">{{changeAbnormalStatus('codeD')}} ：{{scope.row.codeD}}</span>
-                            </div>
-                        </template>
-                        <div class="tableRowDetail">
-                            {{totalAbnormalStatusTotal(scope.row)}}
+    <div class="bodyContent">
+        <div class="contentDetail">
+            <expandTable v-model="checkDataDetail" :loadingStatus="loadingStatus" :tableData="tableData"
+                         :selectColumn="true" selectColumnId="distributor"
+                         :tableTotal="tableTotal" v-on:refreshList="refreshListConfirm">
+                <el-table-column
+                        show-overflow-tooltip
+                        prop="distributor"
+                        label="经销商"
+                        width="140">
+                    <template slot-scope="scope">
+                        <div @click="handleClick(scope.row)"
+                             class="tableRowTitle">
+                            {{scope.row.distributor}}
                         </div>
-                    </el-tooltip>
-                </template>
-            </el-table-column>
-            <el-table-column
-                    show-overflow-tooltip
-                    width="120"
-                    prop="createDate"
-                    label="创建日期">
-            </el-table-column>
-            <el-table-column
-                    show-overflow-tooltip
-                    width="140"
-                    prop="warCheck"
-                    label="核查战区">
-            </el-table-column>
-            <el-table-column
-                    show-overflow-tooltip
-                    width="170"
-                    prop="checkStartTime"
-                    label="分派时间">
-            </el-table-column>
-            <el-table-column
-                    show-overflow-tooltip
-                    width="170"
-                    prop="checkEndTime"
-                    label="截止时间">
-            </el-table-column>
-            <el-table-column
-                    show-overflow-tooltip
-                    width="115"
-                    prop="checkStatus"
-                    label="核查情况">
-            </el-table-column>
-            <el-table-column
-                    show-overflow-tooltip
-                    width="125"
-                    prop="superviseCharge"
-                    label="督导负责人">
-            </el-table-column>
-            <el-table-column
-                    show-overflow-tooltip
-                    width="125"
-                    prop="superviseStatus"
-                    label="督导情况">
-            </el-table-column>
-        </expandTable>
+                    </template>
+                </el-table-column>
+                <el-table-column
+                        show-overflow-tooltip
+                        prop="warBelong"
+                        label="所属战区"
+                        width="140">
+                </el-table-column>
+                <el-table-column
+                        show-overflow-tooltip
+                        width="115"
+                        align="center"
+                        label="异常数">
+                    <template slot-scope="scope">
+                        <el-tooltip class="item" effect="dark" placement="top">
+                            <template slot="content">
+                                <div slot="content">
+                                    <span v-if="scope.row.codeA">{{changeAbnormalStatus('codeA')}} ：{{scope.row.codeA}}</span>
+                                </div>
+                                <div slot="content">
+                                    <span v-if="scope.row.codeB">{{changeAbnormalStatus('codeB')}} ：{{scope.row.codeB}}</span>
+                                </div>
+                                <div slot="content">
+                                    <span v-if="scope.row.codeC">{{changeAbnormalStatus('codeC')}} ：{{scope.row.codeC}}</span>
+                                </div>
+                                <div slot="content">
+                                    <span v-if="scope.row.codeD">{{changeAbnormalStatus('codeD')}} ：{{scope.row.codeD}}</span>
+                                </div>
+                            </template>
+                            <div class="tableRowDetail">
+                                {{totalAbnormalStatusTotal(scope.row)}}
+                            </div>
+                        </el-tooltip>
+                    </template>
+                </el-table-column>
+                <el-table-column
+                        show-overflow-tooltip
+                        width="120"
+                        prop="createDate"
+                        label="创建日期">
+                </el-table-column>
+                <el-table-column
+                        show-overflow-tooltip
+                        width="140"
+                        prop="warCheck"
+                        label="核查战区">
+                </el-table-column>
+                <el-table-column
+                        show-overflow-tooltip
+                        width="170"
+                        prop="checkStartTime"
+                        label="分派时间">
+                </el-table-column>
+                <el-table-column
+                        show-overflow-tooltip
+                        width="170"
+                        prop="checkEndTime"
+                        label="截止时间">
+                </el-table-column>
+                <el-table-column
+                        show-overflow-tooltip
+                        width="115"
+                        prop="checkStatus"
+                        label="核查情况">
+                </el-table-column>
+                <el-table-column
+                        show-overflow-tooltip
+                        width="125"
+                        prop="superviseCharge"
+                        label="督导负责人">
+                </el-table-column>
+                <el-table-column
+                        show-overflow-tooltip
+                        width="125"
+                        prop="superviseStatus"
+                        label="督导情况">
+                </el-table-column>
+            </expandTable>
+        </div>
     </div>
 </template>
 
 <script>
-    import expandTable from './common/expandTable'
+    import expandTable from '../components/common/expandTable'
 
     export default {
         components: {
@@ -222,7 +225,7 @@
                 this.pageInfo = e;
                 this.getList();
             },
-            handleClick:function (row) {
+            handleClick: function (row) {
                 console.log(row);
             }
         }

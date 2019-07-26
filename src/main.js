@@ -36,7 +36,10 @@ Vue.config.productionTip = false;
 
 Vue.prototype.$http = httpRequest;
 Vue.prototype.$axios = nativeAxios;
-
+import {
+    dingTalkPc //PC端
+    //手机端 dingTalkM
+} from 'dingtalk-auth'
 /* eslint-disable no-new */
 new Vue({
     router,
@@ -45,6 +48,30 @@ new Vue({
         App
     },
     created() {
+        let jsApiList = [
+            'biz.contact.choose', 'biz.contact.complexPicker', 'biz.ding.post', 'biz.util.downloadFile', 'biz.util.previewImage', 'biz.util.uploadImage', 'biz.contact.choose', "biz.user.get", 'device.geolocation.get'
+        ]
+        // dingTalkPc.ddConfig(jsApiList, '/api/ddadapter/dingding/expBarcode/getJsTicketPc').then(re => {
+        //     console.log("开始鉴权")
+        //     console.log(re)
+        //     sessionStorage.setItem("corpId", re.data.corpId);
+        //     // 免登
+        //     dingTalkPc.authLogin(re.data.corpId, '/api/ddadapter/dingding/expBarcode/getUserCode').then(res => {
+        //         console.log("开始免登")
+        //         console.log(res)
+        //         sessionStorage.setItem("roleid", res.roleid);
+        //         sessionStorage.setItem("userid", res.userid);
+        //         sessionStorage.setItem("username", res.username);
+        //         sessionStorage.setItem("warcode", res.warinfo.warcode);
+        //         // router.replace({
+        //         //     name: 'abnormalScanSuperviseList'
+        //         // });
+        //     }, err => {
+        //         console.log(err)
+        //     })
+        // }, err => {
+        //     console.log(err)
+        // })
         //this.$router.push({name: 'HelloWorld'});
     },
     beforeDestroy() {

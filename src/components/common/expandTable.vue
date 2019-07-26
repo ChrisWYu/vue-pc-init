@@ -1,5 +1,4 @@
 <template>
-
         <!--配置项-->
         <!--
         column----class:
