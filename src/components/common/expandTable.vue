@@ -48,7 +48,7 @@
                 </div>
             </div>
         </el-pagination>
-        <loading v-if="loadingStatus" v-model="loadingStatus"></loading>
+        <expandLoading v-if="loadingStatus" v-model="loadingStatus"></expandLoading>
     </div>
 </template>
 

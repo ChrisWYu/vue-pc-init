@@ -1,11 +1,11 @@
 import expandTable from './expandTable'
 import expandMenu from './expandMenu'
-import loading from './loading'
+import expandLoading from './expandLoading'
 
 export default {
     install: (Vue) => {
         Vue.component('expandTable', expandTable);
-        Vue.component('loading', loading);
+        Vue.component('expandLoading', expandLoading);
         Vue.component('expandMenu', expandMenu);
     }
 }
