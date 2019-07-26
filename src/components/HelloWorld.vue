@@ -1,6 +1,6 @@
 <template>
     <div>
-        <expandTable v-model="checkDataDetail" :loadingStatus="loadingStatus" :tableData="tableData"
+        <expandTable v-model="checkDataDetail" :loadingStatus="loadingStatus" :tableData="tableData" :selectColumn="true" selectColumnId="distributor"
                      :tableTotal="tableTotal" v-on:refreshList="refreshListConfirm">
             <el-table-column
                     show-overflow-tooltip
@@ -221,6 +221,9 @@
             refreshListConfirm: function (e) {
                 this.pageInfo = e;
                 this.getList();
+            },
+            handleClick:function (row) {
+                console.log(row);
             }
         }
     }
