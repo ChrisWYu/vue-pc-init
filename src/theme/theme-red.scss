@@ -6,9 +6,14 @@ $--input-small-font-size: 12px;
 $--pagination-font-size: 12px;
 $--pagination-button-width: auto;
 $--table-border-color: #D0D0D0;
-$--color-text-regular :#333333;
-/* 改变 icon 字体路径变量，必需 */
+$--color-text-regular: #333333;
+$--color-black: #333333;
+$--color-white: #FFFFFF;
+  /* 改变 icon 字体路径变量，必需 */
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
+/* 自定义组件文字颜色 */
+$--table-router-text-color-custom: #3D70B2;
+$--table-header-color-custom: #F4F7FB;
 @import "../assets/fonts/iconfont.css";
 @import "./plugin.scss";
 @import "~element-ui/packages/theme-chalk/src/index";

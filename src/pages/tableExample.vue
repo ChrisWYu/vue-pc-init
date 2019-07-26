@@ -211,6 +211,7 @@
                     this.tableTotal = res.data.data.total;
                     this.loadingStatus = false;
                 }, (error) => {
+                    this.loadingStatus = false;
                     console.log(error);
                 });
             },
