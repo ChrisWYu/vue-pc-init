@@ -1,0 +1,166 @@
+.expandTable {
+  .el-table {
+    th, td {
+      padding: 10px 0;
+    }
+
+    .cell {
+      padding: 0 20px;
+    }
+  }
+
+  .el-table__empty-text {
+    color: #333333;
+  }
+
+  .el-table-column--selection {
+    .cell {
+      padding: 0 !important;
+      text-align: center;
+    }
+  }
+
+  .el-table thead tr {
+    background-color: #F4F7FB;
+    color: $--color-text-regular;
+    font-size: 16px;
+  }
+
+  .el-table thead th {
+    background-color: unset;
+  }
+
+  .el-pagination {
+    .btn-prev, .btn-next {
+      padding-top: 2px;
+      font-size: 18px;
+      .el-icon:before {
+        font-size: 21px;
+        font-weight: 100;
+      }
+    }
+  }
+  .tableRowTitle {
+    display: inline-block;
+    cursor: pointer;
+    height: 21px;
+    color: #3D70B2
+  }
+  .tableRowDetail {
+    border-bottom: 1px solid #333333;
+    display: inline-block;
+    cursor: pointer;
+    height: 21px;
+  }
+}
+
+.expandTable .el-pagination, .expandTable .el-pagination__total, .expandTable .el-pagination .btn-prev, .expandTable .el-pagination .btn-next, .expandTable .el-input__inner {
+  color: #9B9B9B;
+}
+
+.expandTable .el-pagination__sizes {
+  margin-right: 21px;
+}
+
+.expandTable .el-pagination .el-input__suffix {
+  right: -3px;
+  height: 34px;
+  width: 33px;
+  top: -3px;
+  background-color: $--color-primary;
+}
+
+.expandTable .el-pagination .el-select .el-input .el-select__caret {
+  font-size: 26px;
+  color: #ffffff;
+  width: 100%;
+  margin-top: -2px;
+}
+
+.expandTable .el-pagination .el-select .el-input {
+  width: 85px;
+}
+
+.expandTable .el-pagination .el-select .el-input .el-input__inner {
+  text-align: left;
+}
+
+.expandTable .el-pager li {
+  font-size: 12px;
+  padding: 0;
+  min-width: 24px;
+  height: 24px;
+  line-height: 24px;
+  margin-top: 4px;
+  border-radius: 4px;
+}
+
+.expandTable .el-pager li.active {
+  background-color: #F13D3D;
+  color: #ffffff;
+}
+
+.expandTable .el-pagination {
+  margin-top: 9px;
+  text-align: right;
+  padding: 0 5px;
+}
+
+.expandTable .el-pagination .routerTo {
+  display: inline-block;
+  margin-left: 20px;
+  padding-top: 2px;
+}
+
+.expandTable .el-pagination .routerTo .routerToButton {
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  font-weight: 500;
+  font-size: 14px;
+  font-family: "PingFang SC";
+  color: #ffffff;
+  background-color: #F13D3D;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.expandTable .el-pagination .routerTo .routerToInput {
+  width: 36px;
+  height: 28px;
+  float: left;
+}
+
+.expandTable .el-pagination .routerTo .routerToInput .el-input__inner {
+  height: 28px;
+  line-height: 28px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 0;
+}
+.el-input__icon.el-icon-arrow-up, .el-icon.el-icon-date, .el-icon.el-icon-arrow-left, .el-icon.el-icon-arrow-right, .el-icon.el-icon-close {
+  font-family: "iconfont" !important;
+}
+
+.expandTable .el-icon-arrow-up:before {
+  content: "\e626";
+}
+
+.expandTable .el-icon-date:before {
+  content: "\e61c";
+}
+
+.expandTable .el-icon-arrow-left:before {
+  content: "\e624";
+}
+
+.expandTable .el-icon-arrow-right:before {
+  content: "\e625";
+}
+
+.expandTable .el-icon-close:before {
+  content: "\e623";
+}
