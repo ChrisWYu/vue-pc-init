@@ -3,13 +3,17 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store' // mock数据所用
 import ElementUI from 'element-ui'
 import {nativeAxios, httpRequest} from './api/api.inc'
 import './theme/theme-red.scss'
-import cusComponent from './components/common/index.js'
+// import cusComponent from './components/common/index.js'
+// Vue.use(cusComponent);
 
-Vue.use(cusComponent);
 Vue.use(ElementUI);
+// 全局导入所有组件 页面中直接使用，无需注册组件
+import Components from './components'
+Vue.use(Components);
 
 Date.prototype.format = function (format) {
     var date = {
@@ -43,6 +47,7 @@ import {
 /* eslint-disable no-new */
 new Vue({
     router,
+    store,
     template: '<App/>',
     components: {
         App

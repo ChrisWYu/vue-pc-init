@@ -54,6 +54,7 @@
 
 <script>
     export default {
+        name: "expandTable", // 定义组件名称，全局直接使用该标签
         props: {
             tableData: {
                 default() {

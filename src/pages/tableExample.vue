@@ -97,12 +97,12 @@
 </template>
 
 <script>
-    import expandTable from '../components/common/expandTable'
+    // import expandTable from '../components/common/expandTable'
 
     export default {
-        components: {
-            expandTable
-        },
+        // components: {
+        //     expandTable
+        // },
         data() {
             return {
                 loadingStatus: false,

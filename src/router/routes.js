@@ -32,6 +32,13 @@ export const appRouter = {
             icon:'iconweibiaoti--4',
             component: () => import('../pages/buttonExample.vue')
         },
+        {
+            path: 'demo',
+            name: 'demo',
+            title: '例子',
+            icon:'iconweibiaoti--1',
+            component: () => import('../pages/demo.vue')
+        },
     ]
 };
 export const routes = [
