@@ -3,7 +3,7 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path');
-const myIP = require('my-ip');
+const myIP = require('my-ip'); // 自动获取本机ip
 module.exports = {
   dev: {
 
