@@ -1,3 +1,6 @@
+/**
+  用于后台登录系统验证码
+ */
 <template>
   <div class="img-verify">
     <canvas ref="verify" :width="width" :height="height" @click="handleDraw"></canvas>

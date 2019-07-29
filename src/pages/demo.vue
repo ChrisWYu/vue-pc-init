@@ -1,15 +1,30 @@
 <template>
   <div>
     <verify @imgCode="imgCode"></verify>
+    <el-button type="primary" @click="dialogTableVisible = true">打开拖拽弹窗</el-button>
+    <el-dialog v-el-drag-dialog :visible.sync="dialogTableVisible" title="拖拽弹窗">
+      <el-table :data="tableData">
+        <el-table-column prop="display_time" label="日期" show-overflow-tooltip></el-table-column>
+        <el-table-column prop="author" label="姓名"></el-table-column>
+        <el-table-column prop="title" label="地址" show-overflow-tooltip></el-table-column>
+      </el-table>
+    </el-dialog>
   </div>
 </template>
 <script>
-// import mockData from "./../mock/demo"; // 引入mock数据
+import mockData from "./../mock/demo"; // 引入mock数据
+import elDragDialog from "@/directive/drag"; // 引入拖拽指令
 export default {
+  directives: { elDragDialog }, // 注册vue指令
   data() {
-    return {};
+    return {
+      dialogTableVisible: false, // 弹窗变量
+      tableData: [] // 弹窗数据
+    };
   },
-  created() {},
+  created() {
+    this.getList(); // 获取弹窗数据
+  },
   methods: {
     // 获取数据
     getList() {

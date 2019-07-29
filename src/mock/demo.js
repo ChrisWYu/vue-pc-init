@@ -3,7 +3,7 @@
 import Mock from 'mockjs'
 // 模拟数组
 let List = [];
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 3; i++) {
   List.push(Mock.mock({
     id: '@increment', // 生成一个全局的自增整数
     timestamp: +Mock.Random.date('T'), // 随机时间戳
