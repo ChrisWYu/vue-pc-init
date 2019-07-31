@@ -10,7 +10,13 @@
         <el-table-column prop="title" label="地址" show-overflow-tooltip></el-table-column>
       </el-table>
     </el-dialog>
-    <form-table :minTable="minTable" :cols="cols" :pubForm="pubForm" @min-operator="handleOperator" @on-edit="onEdit"></form-table>
+    <form-table
+      :minTable="minTable"
+      :cols="cols"
+      :pubForm="pubForm"
+      @min-operator="handleOperator"
+      @on-edit="onEdit"
+    ></form-table>
   </div>
 </template>
 <script>
@@ -24,7 +30,7 @@ export default {
       tableData: [], // 弹窗数据
       // 表格参数
       minTable: {
-        tableData: [] //表格数据
+        tableData: [] // 表格数据
       },
       // 表头参数
       cols: [
@@ -88,8 +94,8 @@ export default {
         // 表单对象的校验规则
         rules: {
           author: [
-            { required: true, message: '请输入活动名称', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+            { required: true, message: "请输入姓名", trigger: "blur" },
+            { min: 3, max: 5, message: "长度在 3 到 5 个字符", trigger: "blur" }
           ]
         }
       }
@@ -101,14 +107,14 @@ export default {
   methods: {
     // 获取数据
     getList() {
-      //如果vuex中userMock为true
+      // 如果vuex中userMock为true
       if (this.$store.state.useMock) {
-        //使用延时器模拟异步
+        // 使用延时器模拟异步
         window.setTimeout(() => {
           let res = mockData.list;
           this.tableData = JSON.parse(JSON.stringify(res.data.datas));
           this.minTable.tableData = JSON.parse(JSON.stringify(res.data.datas));
-          //业务逻辑
+          // 业务逻辑
         }, 1000);
         return;
       }
@@ -123,9 +129,9 @@ export default {
       }
     },
     // 编辑确认按钮
-    onEdit(){
+    onEdit() {
       // 将修改后的数据传给后端，刷新表格数据
-      console.log(this.pubForm.form,"this.pubForm.form");
+      console.log(this.pubForm.form, "this.pubForm.form");
       // this.getList();
     },
     // 获取验证码

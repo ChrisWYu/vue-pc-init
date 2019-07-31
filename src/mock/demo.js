@@ -1,4 +1,4 @@
-//mockData.js
+// mockData.js
 
 import Mock from 'mockjs'
 // 模拟数组

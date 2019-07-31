@@ -4,6 +4,7 @@
 <template>
   <div>
     <!-- tableData：数据（必）  height：高度  maxHeight：最大高度  stripe：斑马纹  border：边框  treeProps：树形表结构-->
+    <!-- cols：表头数据，包括表头label、prop、type、width、fixed、align以及对应表单的形式（输入框、选择框、日期选择器等） -->
     <el-table
       :data="minTable.tableData"
       style="width: 100%"
@@ -146,14 +147,13 @@
         <el-row>
           <template v-for="(formItem,key) in cols">
             <template v-if="formItem.type !== 'btn'">
-              <el-col :span="12">
-                <el-form-item :label="formItem.label" :key="key" :prop="formItem.prop">
+              <el-col :span="12" :key="key">
+                <el-form-item :label="formItem.label" :prop="formItem.prop">
                   <!-- input输入框 -->
                   <template v-if="formItem.textType==='input'">
                     <el-input
                       v-model="pubForm.form[formItem.prop]"
                       :type="formItem.inputType"
-                      clearable
                       :placeholder="formItem.placeholder"
                       :disabled="formItem.inputDisabled"
                       style="max-width:220px;"
@@ -165,7 +165,6 @@
                       style="max-width:220px;"
                       v-model="pubForm.form[formItem.prop]"
                       :placeholder="formItem.placeholder"
-                      clearable
                       :disabled="formItem.selectDisabled"
                     >
                       <el-option
@@ -183,7 +182,6 @@
                       v-model="pubForm.form[formItem.prop]"
                       :type="formItem.dateType"
                       :placeholder="formItem.placeholder"
-                      clearable
                       :disabled="formItem.dateDisabled"
                     ></el-date-picker>
                   </template>
