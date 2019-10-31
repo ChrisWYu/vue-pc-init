@@ -155,15 +155,15 @@
   }
 
   .el-icon-arrow-up:before {
-    content: "\e626";
+    content: "\e626" !important;
   }
 
   .el-icon-arrow-left:before {
-    content: "\e624";
+    content: "\e624" !important;
   }
 
   .el-icon-arrow-right:before {
-    content: "\e625";
+    content: "\e625" !important;
   }
 }
 
@@ -171,10 +171,10 @@
   font-family: "iconfont" !important;
 }
 
-.el-icon-date:before {
-  content: "\e61c";
-}
+//.el-icon-date:before {
+//  content: "\e61c" !important;
+//}
 
 .el-icon-close:before {
-  content: "\e623";
+  content: "\e623" !important;
 }

@@ -1,16 +1,16 @@
 <template>
-        <!--配置项-->
-        <!--
-        column----class:
-            tableRowDetail:颜色继承,有下划线
-            tableRowTitle:蓝色字,无下划线
-        :tableData="tableData":表格数据,数组类型
-        :tableTotal="tableTotal":表格数量,数字类型
-         v-model="checkDataDetail":checkDataDetail是选择选中内容
-         loadingStatus:控制loading展示
-         v-on:refreshList="refreshListConfirm":refreshListConfirm当列表更新后,调用的函数
-         selectColumnId="id" 数组中唯一的区分字段,默认id,可不填,用于记录选择框选择状态
-        -->
+    <!--配置项-->
+    <!--
+    column----class:
+        tableRowDetail:颜色继承,有下划线
+        tableRowTitle:蓝色字,无下划线
+    :tableData="tableData":表格数据,数组类型
+    :tableTotal="tableTotal":表格数量,数字类型
+     v-model="checkDataDetail":checkDataDetail是选择选中内容
+     loadingStatus:控制loading展示
+     v-on:refreshList="refreshListConfirm":refreshListConfirm当列表更新后,调用的函数
+     selectColumnId="id" 数组中唯一的区分字段,默认id,可不填,用于记录选择框选择状态
+    -->
     <div class="expandTable">
         <el-table
                 ref="multipleTable"
@@ -21,8 +21,8 @@
                 :data="tableData"
                 style="width: 100%">
             <el-table-column v-if="selectColumn"
-                    type="selection"
-                    width="35"
+                             type="selection"
+                             width="35"
             >
             </el-table-column>
             <slot></slot>
@@ -121,9 +121,9 @@
             this.refreshList();
         },
         computed:{
-          checkUseId:function(){
-              return this.selectColumnId ? this.selectColumnId:'id';
-          }
+            checkUseId:function(){
+                return this.selectColumnId ? this.selectColumnId:'id';
+            }
         },
         methods: {
             renderTableCheck() {
@@ -227,5 +227,13 @@
     }
 </script>
 <style lang="scss">
-
+    .el-pagination button:disabled,.el-pagination .btn-prev, .el-pagination .btn-next{
+        background-color: transparent;
+    }
+    .expandTable .el-pager li{
+        margin-right: 5px;
+    }
+    .expandTable tr .operateContent .cell{
+        padding: 0 10px;
+    }
 </style>
