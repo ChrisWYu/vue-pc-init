@@ -40,10 +40,6 @@ Vue.config.productionTip = false;
 
 Vue.prototype.$http = httpRequest;
 Vue.prototype.$axios = nativeAxios;
-import {
-    dingTalkPc //PC端
-    //手机端 dingTalkM
-} from 'dingtalk-auth'
 /* eslint-disable no-new */
 new Vue({
     router,
@@ -53,9 +49,6 @@ new Vue({
         App
     },
     created() {
-        let jsApiList = [
-            'biz.contact.choose', 'biz.contact.complexPicker', 'biz.ding.post', 'biz.util.downloadFile', 'biz.util.previewImage', 'biz.util.uploadImage', 'biz.contact.choose', "biz.user.get", 'device.geolocation.get'
-        ]
         // dingTalkPc.ddConfig(jsApiList, '/api/ddadapter/dingding/expBarcode/getJsTicketPc').then(re => {
         //     console.log("开始鉴权")
         //     console.log(re)

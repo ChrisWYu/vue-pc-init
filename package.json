@@ -13,8 +13,6 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "dingtalk-auth": "^1.1.4",
-    "dingtalk-jsapi": "^2.6.26",
     "element-ui": "^2.10.1",
     "http-proxy-middleware": "^0.19.1",
     "vue": "^2.5.2",
